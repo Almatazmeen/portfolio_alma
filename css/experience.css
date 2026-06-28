@@ -1,0 +1,419 @@
+/* ============================================================
+   experience.css — Premium Timeline Redesign
+============================================================ */
+
+/* ===========================
+   PAGE WRAPPER
+============================ */
+.exp-page {
+    padding-top: 80px;
+    padding-bottom: 4rem;
+}
+
+/* ===========================
+   PAGE HEADER
+============================ */
+.exp-page-header {
+    text-align: center;
+    padding: 2.5rem 0 4rem;
+}
+
+.exp-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.exp-page-title {
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: var(--text-heading);
+    margin-bottom: 0.6rem;
+}
+
+.exp-page-sub {
+    font-size: 1.05rem;
+    color: var(--text-body);
+    opacity: 0.7;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ===========================
+   SECTION LABEL
+============================ */
+.exp-section-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.exp-section-label-text {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+}
+
+.exp-section-label-line {
+    flex: 1;
+    height: 1px;
+    background: var(--accent-light);
+    opacity: 0.5;
+}
+
+/* ===========================
+   TIMELINE
+============================ */
+.exp-timeline {
+    position: relative;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+/* Vertical spine */
+.exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-dark), var(--accent-light), transparent);
+    border-radius: 2px;
+}
+
+/* ===========================
+   TIMELINE ITEM
+============================ */
+.tl-item {
+    position: relative;
+    padding-left: 68px;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.tl-item.tl-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Dot on spine */
+.tl-dot {
+    position: absolute;
+    left: 8px;
+    top: 28px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid var(--accent-dark);
+    box-shadow: 0 0 0 4px rgba(92, 113, 94, 0.12);
+    transition: all 0.3s ease;
+}
+
+.tl-item:hover .tl-dot {
+    background: var(--accent-dark);
+    box-shadow: 0 0 0 6px rgba(92, 113, 94, 0.18);
+    transform: scale(1.15);
+}
+
+/* Card */
+.tl-card {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(182, 205, 189, 0.45);
+    border-radius: 22px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 24px rgba(92, 113, 94, 0.07);
+    transition: all 0.35s ease;
+}
+
+.tl-card:hover {
+    box-shadow: 0 20px 55px rgba(92, 113, 94, 0.16);
+    transform: translateY(-5px);
+    border-color: rgba(92, 113, 94, 0.25);
+}
+
+/* Card top row */
+.tl-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.tl-company {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+}
+
+.tl-company-sub {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-body);
+    opacity: 0.7;
+    margin-top: 0.15rem;
+}
+
+/* Duration badge */
+.tl-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--accent-light);
+    color: var(--accent-dark);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1.1rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.tl-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-dark);
+}
+
+/* Role label */
+.tl-role {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+    background: rgba(92, 113, 94, 0.08);
+    border-radius: 6px;
+    padding: 0.35rem 0.9rem;
+    margin-bottom: 1 rem;
+}
+
+/* Divider */
+.tl-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--accent-light);
+    opacity: 0.35;
+    margin: 1.8rem 0;
+}
+
+/* Achievement bullets */
+.tl-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+}
+
+.tl-bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    background: rgba(242, 249, 241, 0.7);
+    border: 1px solid rgba(182, 205, 189, 0.3);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    transition: all 0.2s ease;
+}
+
+.tl-bullet:hover {
+    background: rgba(221, 238, 223, 0.8);
+    border-color: rgba(92, 113, 94, 0.2);
+    transform: translateX(4px);
+}
+
+.tl-bullet-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.tl-bullet-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--accent-dark);
+}
+
+.tl-bullet-text {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--text-body);
+}
+
+/* Certificate row */
+.tl-cert {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.tl-cert-thumb {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: var(--bg-secondary);
+    border: 3px solid #fff;
+    box-shadow: 0 8px 25px rgba(92, 113, 94, 0.12);
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+.tl-cert-thumb:hover {
+    transform: scale(1.04);
+    box-shadow: 0 15px 40px rgba(92, 113, 94, 0.2);
+}
+
+.tl-cert-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tl-cert-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    color: var(--accent-dark);
+}
+
+.tl-cert-placeholder svg {
+    width: 32px;
+    height: 32px;
+    fill: var(--accent-light);
+}
+
+.tl-cert-placeholder span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text-body);
+    opacity: 0.6;
+}
+
+/* View certificate overlay */
+.tl-cert-thumb::after {
+    content: 'View';
+    position: absolute;
+    inset: 0;
+    background: rgba(44, 58, 46, 0.75);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    border-radius: inherit;
+}
+
+.tl-cert-thumb:hover::after {
+    opacity: 1;
+}
+
+.tl-cert-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.tl-cert-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+    opacity: 0.7;
+}
+
+.tl-cert-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.4rem;
+    background: var(--accent-dark);
+    color: #fff;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    width: fit-content;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(92, 113, 94, 0.28);
+}
+
+.tl-cert-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: #fff;
+    fill: none;
+    transition: transform 0.25s ease;
+}
+
+.tl-cert-btn:hover {
+    background: #3d5c3f;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(92, 113, 94, 0.38);
+    color: #fff;
+}
+
+.tl-cert-btn:hover svg {
+    transform: translateX(3px);
+}
+
+
+
+/* ===========================
+   RESPONSIVE
+============================ */
+@media (max-width: 768px) {
+    .tl-cert {
+        grid-template-columns: 1fr;
+    }
+
+    .edu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tl-top {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .tl-card {
+        padding: 2rem;
+    }
+}

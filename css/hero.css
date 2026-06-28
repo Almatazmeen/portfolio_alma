@@ -1,0 +1,539 @@
+/* ============================================================
+   HERO V2 — Premium Award-Winning Hero CSS
+   Only applies to the homepage hero. Other pages unaffected.
+============================================================ */
+
+/* Particle canvas */
+#particleCanvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.55;
+}
+
+/* Background subtle grid */
+.hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(92, 113, 94, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(92, 113, 94, 0.06) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ===========================
+   HERO V2 CONTAINER
+============================ */
+.hero-v2 {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 90px;
+    overflow: hidden;
+}
+
+.hero-v2-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    padding: 3rem 2rem;
+}
+
+/* ===========================
+   LEFT — TEXT
+============================ */
+.hero-v2-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Pulsing badge */
+.hero-v2-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(92, 113, 94, 0.1);
+    border: 1px solid rgba(92, 113, 94, 0.25);
+    color: var(--accent-dark);
+    border-radius: 100px;
+    padding: 0.45rem 1.2rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    width: fit-content;
+    margin-bottom: 1.8rem;
+    backdrop-filter: blur(8px);
+}
+
+.badge-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #4caf50;
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.6);
+    animation: pulse-dot 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+@keyframes pulse-dot {
+    0%   { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.55); }
+    70%  { box-shadow: 0 0 0 8px rgba(76, 175, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+}
+
+/* Main title */
+.hero-v2-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 4vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    color: var(--text-heading);
+    margin-bottom: 1rem;
+}
+
+.hero-name-gradient {
+    background: linear-gradient(135deg, #2c3a2e 0%, #5c715e 40%, #3d8b4f 70%, #2c3a2e 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer-text 4s linear infinite;
+}
+
+@keyframes shimmer-text {
+    0%   { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Role line */
+.hero-v2-role {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 500;
+    color: var(--text-body);
+    margin-bottom: 1.8rem;
+    letter-spacing: 0.2px;
+}
+
+.role-separator {
+    color: var(--accent-light);
+    font-weight: 300;
+}
+
+/* Description */
+.hero-v2-desc {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--text-body);
+    max-width: 540px;
+    margin-bottom: 2.2rem;
+}
+
+/* Stats row */
+.hero-v2-stats {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.8rem;
+}
+
+.hs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+}
+
+.hs strong {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent-dark);
+    line-height: 1;
+}
+
+.hs span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-body);
+    opacity: 0.75;
+}
+
+.hs-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--accent-light);
+    opacity: 0.5;
+}
+
+/* ===========================
+   BUTTONS
+============================ */
+.hero-v2-buttons {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Apple-style primary */
+.btn-apple {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 2.2rem;
+    background: var(--accent-dark);
+    color: #fff;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    box-shadow: 0 4px 20px rgba(92, 113, 94, 0.35);
+    text-decoration: none;
+}
+
+.btn-apple::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+}
+
+.btn-apple:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(92, 113, 94, 0.45);
+    background: #4a5c4b;
+    color: #fff;
+}
+
+.btn-apple:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.btn-apple svg {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.btn-apple:hover svg {
+    transform: translateX(4px);
+}
+
+/* Ripple effect */
+.ripple-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: inherit;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    transform: scale(0);
+    animation: ripple-anim 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-anim {
+    to { transform: scale(4); opacity: 0; }
+}
+
+/* Clean secondary button */
+.btn-animated-border {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.2rem;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    text-decoration: none;
+    background: transparent;
+    border: 2px solid var(--accent-light);
+    transition: all 0.25s ease;
+}
+
+.btn-animated-border:hover {
+    transform: translateY(-3px);
+    background: var(--bg-secondary);
+    color: var(--text-heading);
+    border-color: var(--accent-dark);
+    box-shadow: 0 8px 25px rgba(92, 113, 94, 0.2);
+}
+
+/* ===========================
+   RIGHT — PROFILE VISUAL
+============================ */
+.hero-v2-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 440px;
+}
+
+/* Glow blob */
+.hero-glow-blob {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(182, 205, 189, 0.5) 0%, rgba(221, 238, 223, 0.2) 60%, transparent 80%);
+    filter: blur(40px);
+    animation: glow-pulse 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes glow-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50%       { transform: scale(1.12); opacity: 1; }
+}
+
+/* Animated ring */
+.hero-ring {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--accent-dark), var(--accent-light), #b6cdbd, var(--accent-dark));
+    animation: spin-ring 6s linear infinite;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-ring-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--bg-main);
+}
+
+@keyframes spin-ring {
+    to { transform: rotate(360deg); }
+}
+
+/* Profile frame */
+.hero-profile-frame {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    box-shadow:
+        0 20px 60px rgba(92, 113, 94, 0.25),
+        0 0 0 6px rgba(255,255,255,0.9),
+        inset 0 0 0 1px var(--accent-light);
+    animation: float-image 5s ease-in-out infinite;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes float-image {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-16px); }
+}
+
+.hero-profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+.hero-profile-monogram {
+    display: none;
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--accent-dark);
+    opacity: 0.3;
+}
+
+.hero-profile-frame.no-image .hero-profile-img {
+    display: none;
+}
+
+.hero-profile-frame.no-image .hero-profile-monogram {
+    display: block;
+}
+
+/* Chips removed — clean profile only */
+
+/* ===========================
+   SCROLL INDICATOR
+============================ */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    z-index: 3;
+    animation: fade-in-up 1s ease 1.5s both;
+}
+
+.scroll-line {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--accent-dark), transparent);
+    animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+@keyframes scroll-bounce {
+    0%, 100% { transform: scaleY(1); transform-origin: top; }
+    50%       { transform: scaleY(0.6); transform-origin: top; }
+}
+
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translate(-50%, 15px); }
+    to   { opacity: 0.6; transform: translate(-50%, 0); }
+}
+
+/* ===========================
+   HERO ENTRANCE ANIMATION
+============================ */
+.hero-v2-text > * {
+    opacity: 0;
+    transform: translateY(25px);
+    animation: hero-enter 0.7s ease forwards;
+}
+
+.hero-v2-badge   { animation-delay: 0.1s; }
+.hero-v2-title   { animation-delay: 0.2s; }
+.hero-v2-role    { animation-delay: 0.3s; }
+.hero-v2-desc    { animation-delay: 0.4s; }
+.hero-v2-stats   { animation-delay: 0.5s; }
+.hero-v2-buttons { animation-delay: 0.6s; }
+
+.hero-v2-visual {
+    opacity: 0;
+    animation: hero-enter-right 0.9s ease 0.3s forwards;
+}
+
+@keyframes hero-enter {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-enter-right {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ===========================
+   RESPONSIVE
+============================ */
+@media (max-width: 1024px) {
+    .hero-v2-inner {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-v2-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 4rem;
+    }
+
+    .hero-v2-badge { margin: 0 auto 1.8rem; }
+    .hero-v2-desc  { max-width: 100%; }
+
+    .hero-v2-stats {
+        justify-content: center;
+    }
+
+    .hero-v2-buttons {
+        justify-content: center;
+    }
+
+    .hero-v2-visual {
+        height: 380px;
+    }
+
+    .hero-profile-frame {
+        width: 240px;
+        height: 240px;
+    }
+
+    .hero-ring {
+        width: 270px;
+        height: 270px;
+    }
+
+    .hero-glow-blob {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-v2-title {
+        font-size: 2.6rem;
+        letter-spacing: -1px;
+    }
+
+    .hero-v2-role {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .hero-v2-stats {
+        gap: 1rem;
+    }
+
+    .hs strong {
+        font-size: 1.5rem;
+    }
+
+    .btn-apple, .btn-animated-border {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-chip.chip-2, .hero-chip.chip-3 {
+        display: none;
+    }
+}
