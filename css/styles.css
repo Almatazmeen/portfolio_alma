@@ -83,6 +83,7 @@ h6 {
   font-weight: 700;
   color: var(--text-heading);
   line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 a {
@@ -203,21 +204,21 @@ header {
   border-radius: 8px;
   font-weight: 600;
   font-family: var(--font-heading);
-  transition: var(--transition);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
   border: 2px solid transparent;
   font-size: 1rem;
 }
 
 .btn-primary {
-  background: var(--accent-dark);
+  background: linear-gradient(135deg, var(--accent-dark), #4a5c4b);
   color: #fff;
+  border: none;
 }
 
 .btn-primary:hover {
-  background: #4a5c4b;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(92, 113, 94, 0.3);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(92, 113, 94, 0.4);
 }
 
 .btn-secondary {
@@ -228,7 +229,8 @@ header {
 
 .btn-secondary:hover {
   background: var(--bg-secondary);
-  transform: translateY(-3px);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(92, 113, 94, 0.15);
 }
 
 .btn-outline {
@@ -239,14 +241,14 @@ header {
   color: var(--text-heading);
   font-weight: 600;
   font-size: 0.95rem;
-  transition: var(--transition);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .btn-outline:hover {
   background: var(--accent-light);
   color: var(--text-heading);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(92, 113, 94, 0.2);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(92, 113, 94, 0.25);
 }
 
 /* ===========================
@@ -414,8 +416,9 @@ header {
 }
 
 .stat-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(92, 113, 94, 0.25);
+  border-color: var(--accent-light);
 }
 
 .stat-card h3 {
@@ -456,8 +459,9 @@ header {
 }
 
 .service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(92, 113, 94, 0.25);
+  border-color: var(--accent-light);
 }
 
 .service-icon {
@@ -506,8 +510,9 @@ header {
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(92, 113, 94, 0.25);
+  border-color: var(--accent-light);
 }
 
 .project-card.reverse {
@@ -951,6 +956,44 @@ main>*:first-child {
   }
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.service-icon {
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-image-card {
+  animation: float 8s ease-in-out infinite;
+}
+
+/* ===========================
+   CUSTOM SCROLLBAR
+============================ */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-light);
+  border-radius: 10px;
+  border: 2px solid var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-dark);
+}
+
 /* ===========================
    MEDIA QUERIES
 ============================ */
@@ -989,10 +1032,100 @@ main>*:first-child {
 }
 
 @media (max-width: 768px) {
+  /* Mobile Navbar Toggle (CSS Only) */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
 
-  .nav-links,
+  .logo {
+    z-index: 1002;
+  }
+
   .resume-btn {
     display: none;
+  }
+
+  /* Hamburger Icon (3 lines) */
+  .navbar::before, .navbar::after {
+    content: '';
+    position: absolute;
+    right: 1.5rem;
+    width: 24px;
+    height: 2px;
+    background: var(--text-heading);
+    transition: all 0.3s ease;
+    z-index: 1002;
+    pointer-events: none;
+  }
+
+  .navbar::before {
+    top: calc(50% - 6px);
+    box-shadow: 0 6px 0 var(--text-heading);
+  }
+
+  .navbar::after {
+    top: calc(50% + 6px);
+  }
+
+  /* Dropdown Menu */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(242, 249, 241, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    gap: 1.5rem;
+    box-shadow: 0 10px 30px rgba(92, 113, 94, 0.15);
+    border-top: 1px solid rgba(92, 113, 94, 0.1);
+    
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1000;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li a {
+    font-size: 1.1rem;
+    padding: 0.8rem;
+    display: block;
+    width: 100%;
+  }
+
+  /* Show Menu on Tap (Class toggled by JS) */
+  .navbar.menu-open .nav-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Transform Hamburger to X when open */
+  .navbar.menu-open::before {
+    top: 50%;
+    transform: rotate(45deg);
+    box-shadow: none; /* Hide middle line */
+  }
+
+  .navbar.menu-open::after {
+    top: 50%;
+    transform: rotate(-45deg);
   }
 
   .hero-text h1 {

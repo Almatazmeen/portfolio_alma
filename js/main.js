@@ -24,24 +24,39 @@ const initNavbar = () => {
     // Skip if hero.js already handles this (homepage)
     if (document.getElementById('particleCanvas')) return;
 
+    const header = document.getElementById('navbar');
+    if (!header) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+            header.style.background = 'rgba(255, 255, 255, 0.92)';
+            header.style.boxShadow = '0 4px 30px rgba(92,113,94,0.12)';
+            header.style.backdropFilter = 'blur(20px)';
+        } else {
+            header.style.background = 'rgba(242, 249, 241, 0.6)';
+            header.style.boxShadow = 'none';
+            header.style.backdropFilter = 'blur(12px)';
+        }
+    }, { passive: true });
+};
+
+const initMobileMenu = () => {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.padding = '0.5rem 0';
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = '0 5px 20px rgba(0,0,0,0.08)';
-        } else {
-            navbar.style.padding = '';
-            navbar.style.background = 'rgba(242, 249, 241, 0.6)';
-            navbar.style.boxShadow = 'none';
+    navbar.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            // Prevent toggling if clicking a link inside the nav
+            if (e.target.tagName !== 'A') {
+                navbar.classList.toggle('menu-open');
+            }
         }
-    }, { passive: true });
+    });
 };
 
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initNavbar();
+    initMobileMenu();
 });
