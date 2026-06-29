@@ -993,6 +993,9 @@ main>*:first-child {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-dark);
 }
+.mobile-only {
+    display: none;
+}
 
 /* ===========================
    MEDIA QUERIES
@@ -1050,6 +1053,7 @@ main>*:first-child {
   .resume-btn {
     display: none;
   }
+ 
 
   /* Hamburger Icon (3 lines) */
   .navbar::before, .navbar::after {
@@ -1147,4 +1151,7 @@ main>*:first-child {
   .content-card {
     padding: 2rem;
   }
+  .mobile-only{
+    display:block;
+}
 }

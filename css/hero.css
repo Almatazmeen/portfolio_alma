@@ -537,3 +537,113 @@
         display: none;
     }
 }
+/* ===================================================
+   MOBILE RESPONSIVENESS OVERRIDES
+=================================================== */
+
+@media (max-width: 768px) {
+
+    .hero-v2 {
+        padding-top: 110px;
+        min-height: auto;
+    }
+
+    .hero-v2-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1.25rem;
+    }
+
+    .hero-v2-text {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-v2-title {
+        font-size: 2.6rem;
+        line-height: 1.15;
+    }
+
+    .hero-v2-role {
+        flex-direction: column;
+        gap: .3rem;
+    }
+
+    .hero-v2-desc {
+        width: 100%;
+        max-width: 100%;
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .hero-v2-stats {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 1.2rem;
+        width: 100%;
+    }
+
+    .hs-divider{
+        display:none;
+    }
+
+    .hero-v2-buttons{
+        flex-direction:column;
+        width:100%;
+    }
+
+    .btn-apple,
+    .btn-animated-border{
+        width:100%;
+        justify-content:center;
+    }
+
+    .hero-v2-visual{
+        order:-1;
+        width:100%;
+        height:auto;
+    }
+
+}
+/* ===== Small phones (320px–480px) ===== */
+@media (max-width: 480px) {
+
+    .hero-v2 {
+        padding-top: 90px;
+    }
+
+    .hero-v2-visual {
+        height: 240px;
+        margin-bottom: 1rem;
+    }
+
+    .hero-profile-frame {
+        width: 180px;
+        height: 180px;
+    }
+
+    .hero-ring {
+        width: 205px;
+        height: 205px;
+    }
+
+    .hero-glow-blob {
+        width: 210px;
+        height: 210px;
+        filter: blur(24px);
+    }
+
+    .hero-v2-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-v2-desc {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .hero-v2-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
